@@ -1,0 +1,17 @@
+# VHDL-Attribute (2 Punkte)
+
+Mithilfe von Attributen kann in VHDL auf bestimmte Eigenschaften von Signalen zugegriffen werden.
+Informieren Sie sich zum Beispiel in [1] oder [5] über Attribute in VHDL und beantworten Sie die folgenden Fragen:
+
+1. Wie greifen Sie auf das Attribut eines Signals zu? Geben Sie die Syntax anhand eines Beispiels an.
+2. Nennen Sie drei der im Standard vordefinierten Attribute und erklären Sie kurz, was sie repräsentieren.
+3. Über welche Attribute erhält man den Bereich für Signale des Typs std_logic_vector?
+4. Wie kann man in VHDL mithilfe von Attributen eine positive bzw. negative Flanke eines Signals detektieren? Geben Sie die entsprechenden VHDL-Anweisungen an.
+
+1. Zugreifen auf das Signal erfolgt mit einem Apostroph zwischen dem Signal und dem Attribut. Beispiel: s'STABLE gibt das Attribut STABLE vom Signal s aus.
+2. s'STABLE[(t)]: liefert true, falls das Signal eine Zeit t ohne Ereignis war, sonst false
+   s'EVENT: liefert true, falls beim Signal s während des aktuellen Simulationszyklus' ein Ereignis auftritt, sonst false
+   s'LAST_VALUE: liefert den Wert des Signals s vor dem letzten Ereignis
+3. LEFT, RIGHT, HIGH, LOW, RANGE
+4. steigende (positive) Flanke: signal'EVENT and signal'LAST_VALUE = '0'
+   fallende (negative) Flanke: signal'EVENT and signal'LAST_VALUE = '1' 

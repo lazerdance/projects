@@ -1,0 +1,33 @@
+Diese Datei zeigt den Inhalt der ROrgPrSimLib.proc_config.vhd.
+Sie dient lediglich zu Informationszwecken, soll aber nicht weiter verwendet werden.
+
+----------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+package proc_config is
+
+	-- RAM configuration and data types
+	constant NUM_RAM_ELEMENTS : integer := 1024;
+	constant LOG2_NUM_RAM_ELEMENTS : integer := 10;
+	constant RAM_ELEMENT_WIDTH : integer := 32;
+	type ram_elements_type is array (0 to NUM_RAM_ELEMENTS - 1) of std_logic_vector(RAM_ELEMENT_WIDTH - 1 downto 0);
+
+	-- Register File configuration and data types
+	constant NUM_REGS : integer := 32;
+	constant LOG2_NUM_REGS : integer := 5;
+	constant REG_WIDTH : integer := 32;
+	type reg_vector_type is array (NUM_REGS - 1 downto 0) of std_logic_vector(REG_WIDTH - 1 downto 0);
+	
+	-- ALU configuration
+	constant ALU_WIDTH : integer := 32;
+	
+end proc_config;
+
+package body proc_config is
+
+end proc_config;
+
+----------------------------------------------------------------

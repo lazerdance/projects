@@ -1,0 +1,147 @@
+#!/usr/bin/python
+import re
+import fileinput
+
+Wave      = {"init":{}}
+Code      = {}
+Parameter = {}
+TimeCurr  = "init";
+Types     = {}
+TypeDef   = {}
+Length    = {}
+
+Cmd = {
+	'T' : lambda p: Time(p[1]),
+	'N' : lambda p: Type(p[1], p[2], p[3:]),
+	'D' : lambda p: Define(p[1], p[2], p[3], p[4]),
+	'S' : lambda p: Set(p[1], p[2]),
+	'P' : lambda p: Param(p[1],p[2])
+}
+
+TimeScale = {
+	'"1e-09"' : "ns",
+	'"1e-12"' : "ps",
+	'"1e-15"' : "fs"
+}
+
+def splitName(name):
+	name = name.replace("(","/").replace(")","")
+	tmp = name.split("/")
+	try:
+		return ("/".join(tmp[0:-1]),int(tmp[-1]))
+	except:
+		return (name,None)
+
+def Insert(time, name, value):
+	(name, index) = splitName(name)
+	if index != None:
+		Wave[time].setdefault(name,{})[index] = value[2:-2]
+	else:
+		Wave[time].setdefault(name,{})["all"] = value[2:-2]
+
+def Time(time):
+	global TimeCurr
+	TimeCurr = int(time.replace('.',''))
+	Wave[TimeCurr] = {}
+
+def Type(name, typ, parameter):
+	TypeDef[name] = (typ, parameter)
+
+def Define(name, code, value, typ):
+	Code[code] = name;
+	Insert("init",Code[code],value)
+	(name, index) = splitName(name)
+	if index != None:
+		if Length.setdefault(name,1) < int(index) + 1:
+			Length[name] = int(index) + 1
+	else:
+		Length[name] = 1
+	Types[name] = typ
+	
+
+def Set(code, value):
+
+	Insert(TimeCurr,Code[code],value)
+
+def Param(name, value):
+	Parameter[name] = value
+
+def readLog():
+	mline = ""
+	for line in fileinput.input():
+		if (line[0] != '\n' and line[-2] == '\\'):
+			mline += line[0:-2]
+			continue
+		else:
+			mline += line[0:-1]
+	
+		if mline[0] != '#':
+			p = mline.split(" ")
+			Cmd[p[0]](p)
+	
+		mline = ""
+
+def mergeWave():
+	init = Wave["init"]
+	new  = {}
+	for n in init.keys():
+		if "all" in init[n]:
+			new.setdefault(0,{})[n] = init[n]["all"]
+		else:
+			new.setdefault(0,{})[n] = "".join(init[n].values())
+	currValue = Wave["init"]
+	del Wave["init"]
+	keys = list(Wave.keys())
+	keys.sort()
+	for t in keys:
+		for n in Wave[t]:
+			currValue[n].update(Wave[t][n])
+			if "all" in Wave[t][n]:
+				new.setdefault(t,{})[n] = currValue[n]["all"]
+			else:
+				indexes = list(currValue[n].keys())
+				indexes.sort()
+				indexes.reverse()
+				vector = ""
+				for i in indexes:
+					vector += currValue[n][i]
+				new.setdefault(t,{})[n] = vector
+	return new
+
+def writeVCD(wave):
+	print("$timescale 1"+TimeScale[Parameter["timestep"]]+" $end")
+	hierarchy = {}
+	for n in Length.keys():
+		levels = [ x for x in n.split('/') if x ]
+		for level in levels[0:-1]:
+			print("$scope module "+level+" $end")
+		if Types[n] == 'std_ulogic':
+			print("$var wire "+str(Length[n])+" "+n+" "+n+" $end")
+		elif Types[n] == 'integer':
+			print("$var integer 32 "+n+" "+n+" $end")	
+		else:
+			print("$var string "+str(Length[n])+" "+n+" "+n+" $end")
+		for level in levels[0:-1]:
+			print("$upscope $end")
+	print("$enddefinitions $end")
+	keys = list(wave.keys())
+	keys.sort()
+	for t in keys:
+		print("#"+str(t))
+		for n in wave[t].keys():
+			if Types[n] == 'std_ulogic':
+				print("b"+wave[t][n]+" "+n)
+				continue
+			if Types[n] == 'integer':
+				print("b"+bin(int(wave[t][n]) & 0xffffffff)[2:].rjust(32,'0')+" "+n)
+				continue
+			if Types[n] in TypeDef:
+				print("s"+wave[t][n]+" "+n)
+				continue
+			print(wave[t][n]+" "+n)
+
+readLog()
+new = mergeWave()
+writeVCD(new)
+
+

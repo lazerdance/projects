@@ -1,0 +1,57 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/afs/tu-berlin.de/home/c/climb4/irb-ubuntu/Dokumente/RorgPR/RorgPrWS17/Blatt05/praxis/Aufgabe02.1
+Edff
+Z1 w1512468097
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 d/afs/tu-berlin.de/home/c/climb4/irb-ubuntu/Dokumente/RorgPR/RorgPrWS17/Blatt05/praxis/Aufgabe02.1
+Z4 8dff.vhd
+Z5 Fdff.vhd
+l0
+L4
+V4Pf?zDZB`Of:ijI7N[0C81
+Z6 OL;C;6.6d;45
+32
+Z7 tExplicit 1 Quiet 1
+!s100 NfPg;N^<mCTbdh9cc3`jQ2
+Abehavioral
+R2
+Z8 DEx4 work 3 dff 0 22 4Pf?zDZB`Of:ijI7N[0C81
+l12
+L11
+VQ7TFm]oTRG^fLX5Rh<iFn0
+R6
+32
+Z9 Mx1 4 ieee 14 std_logic_1164
+R7
+!s100 AGX;<bIIoE`i_GdgTGB3k0
+Edff_tb
+Z10 w1511912516
+Z11 DPx3 std 6 textio 0 22 m2KQDRRhmF833<<DjYdL70
+R2
+R3
+Z12 8dff_tb.vhd
+Z13 Fdff_tb.vhd
+l0
+L7
+VAVKGQU7P4DBIJAiMgMZg03
+!s100 hNAGbWkkcTgJZGSA@zRiN3
+R6
+32
+R7
+Abehavioral
+R8
+R11
+R2
+DEx4 work 6 dff_tb 0 22 AVKGQU7P4DBIJAiMgMZg03
+l16
+L10
+VWnXj0`>3=>C=Q;ifO[dM00
+!s100 Q`4X=KN=@]@=zOH1ICf`l2
+R6
+32
+Z14 Mx2 4 ieee 14 std_logic_1164
+Z15 Mx1 3 std 6 textio
+R7

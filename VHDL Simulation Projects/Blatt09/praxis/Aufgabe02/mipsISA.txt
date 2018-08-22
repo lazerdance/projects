@@ -1,0 +1,29 @@
+Diese Datei zeigt den Inhalt der ROrgPrSimLib.mipsISA.vhd.
+Sie dient lediglich zu Informationszwecken, soll aber nicht weiter verwendet werden.
+
+----------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+package mipsISA is
+
+	constant R_FORMAT_OPCODE : std_logic_vector(5 downto 0) := "000000";
+	constant ADD_FUNCT : std_logic_vector(5 downto 0) := "100000";
+	constant SUB_FUNCT : std_logic_vector(5 downto 0) := "100010";
+	constant AND_FUNCT : std_logic_vector(5 downto 0) := "100100";
+	constant  OR_FUNCT : std_logic_vector(5 downto 0) := "100101";
+	constant SLT_FUNCT : std_logic_vector(5 downto 0) := "101010";
+	
+	constant LW_OPCODE : std_logic_vector(5 downto 0) := "100011";
+	constant SW_OPCODE : std_logic_vector(5 downto 0) := "101011";
+	constant BEQ_OPCODE : std_logic_vector(5 downto 0) := "000100";
+	constant J_OPCODE : std_logic_vector(5 downto 0) := "000010";
+	
+end mipsISA;
+
+package body mipsISA is
+
+end mipsISA;
+
+----------------------------------------------------------------

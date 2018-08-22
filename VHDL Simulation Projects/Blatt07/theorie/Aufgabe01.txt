@@ -1,0 +1,9 @@
+# Aufgabe 1: Carry-Select Addierer (2 Punkte)
+Erklären Sie das Prinzip und die Funktionsweise eines Carry-Select-Addierers.
+Nennen Sie jeweils einen Vor- und Nachteil im Vergleich zu einem Carry-Ripple-Addierer.
+
+Hinweis:
+Beschränken Sie sich bei der Erklärung auf einen einfachen, nicht kaskadierten Carry-Select-Addierer.
+Beim Carry-Select-Addierer werden mehrere Carry-Ripple-Addierer benutzt, um blockweise die Addition parallel auszuführen. Da bis auf den niederwertigsten Block der Übertrag des vorigen Blocks für die korrekte Weiterrechnung bekannt sein muss, werden für alle höheren Blöcke die Operationen zweimal durchgeführt: Einmal für den Übertrag 0 und einmal für den Übertrag 1. Der richtige Fall wird per Multiplexer ausgewählt, sobald der vorige Block abgearbeitet wurde.
+Vorteil: Durch parallele Ausführungen der Addition ist der Carry-Select-Addierer schneller als der Carry-Ripple-Addierer.
+Nachteil: Da man für jeden Block zwei Addierer statt einem benötigt, ist der Hardwareaufwand bei einem Carry-Select-Addierer höher als bei einem Carry-Ripple-Addierer.

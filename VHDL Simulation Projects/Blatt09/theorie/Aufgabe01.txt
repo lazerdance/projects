@@ -1,0 +1,37 @@
+Aufgabe 1: Automaten (5 Punkte)
+Informieren Sie sich (z.B. in [1, ab Seite 273]) über endliche Zustandsautomaten.
+Erarbeiten Sie insbesondere den Unterschied zwischen Moore- und Mealy-Automaten (z.B. [1, ab Seite 279]).
+Beantworten Sie anschließend die folgenden Fragen:
+
+1. (1 Punkt)
+Was ist ein endlicher Zustandsautomat?
+
+Ein Zustandsautomat beschreibt das Verhalten eines Systems mithilfe von Zuständen, Zustandsübergängen und Aktionen. Ein Zustand beinhaltet Informationen über Änderungen des Systems vom Startpunkt bis zum aktuellen Zeitpunkt. Ein Zustandsübergang beschreibt die Änderung eines Zustandes und wird durch logische Bedingungen herbeigeführt. Eine Aktion ist die Ausgabe des Systems. Diese kann in verschiedenen Situationen generiert werden. Ist die Anzahl der Zustände endlich, so spricht man auch von endlichen Zustandsautomaten.
+
+2. (2 Punkte)
+Wie unterscheiden sich Moore- und Mealy-Automaten voneinander? Nennen Sie für beide Varianten jeweils einen Vorteil!
+
+Die Aktionen des Moore-Automaten sind Eingangsaktionen, die Ausgabe hängt nur vom Zustand ab. In Mealy-Automaten werden hingegen Eingabeaktionen verwendet, die Ausgabe hängt also vom Zustand und von der Eingabe ab. Moore-Automaten sind daher einfacher zu verstehen, während Mealy-Automaten kompakter dargestellt werden können, da sie weniger Zustände für die vollständige Beschreibung des Systems benötigen.
+
+3. (2 Punkte)
+In VHDL lassen sich Automaten über ein bis mehrere Prozesse realisieren.
+Wonach wird bei einer Mehrprozessimplementierung die Logik aufgeteilt?
+Wie viele sinnvolle Varianten gibt es und welche Vorteile ergeben sich?
+
+Ein-Prozess Implementierung besteht aus
+- einem Prozess aus taktsynchronen DFFs (Zustandsspeicher)
+- Vorteil: Ausgaben immer taktsynchron
+
+Zwei-Prozess Implementierung besteht aus 
+- einem Prozess aus taktsynchronen DFFs
+- einem kombinatorischem Prozess zur gemeinsamen Realisierung von Ausgabe- und Übergangsschaltnetz
+- Vorteil: mehr Übersichtlichkeit durch Trennung der Prozesse
+
+Drei-Prozess Implementierung besteht aus
+- einem Prozess aus taktsynchronen DFFs
+- zwei kombinatorischen Prozessen zur getrennten Realisierung von Ausgabe- und Übergangsschaltnetz
+- Vorteil: übersichtlichste Beschreibung
+
+Der Zustandsspeicher kann 2^n Zustände binär codieren und kann den vorbereiteten Folgezustand speichern. Er dient also als Gedächtnis des Automaten.
+Das Übergangsschaltnetz ist eine Logikeinheit, die den Folgezustand auf Basis des aktuellen Zustands und der externen Eingangssignale vorausberechnet.
+Das Ausgangsschaltnetz ist eine Logikeinheit, mit der die Ausgangssignale nur aus dem aktuellen Zustand berechnet werden. 
