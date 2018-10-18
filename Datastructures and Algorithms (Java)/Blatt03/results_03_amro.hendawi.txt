@@ -1,0 +1,22 @@
+amro.hendawi,  06.06.2018, 10:37:02
+Korrektur Blatt 3
+
+Aufgabe 1.5
+	Tests if BFS works for clique of random size: 10/10
+	Tests if BFS works over a long distance: 10/10
+	Tests if BFS works for ring of random size: 10/10
+	Simple test that we will run before each test to check if the students have implemented something at all: 0/0
+	Tests if BFS works for tree of size around 50: 10/10
+	Tests if unreachable nodes don't appear in output of BFS: 5/5
+	Tests if elements are in breadth-first order: 15/15
+	Tests if BFS handles empty graph: 5/5
+	Tests if BFS handles non existing node: 5/5
+Total points for Aufgabe 1.5: 70/70
+
+Aufgabe 1.6
+	Tests if BFS can find the right way out of the labyrinth: 10/10
+	Tests if BFS can find the right way out of the labyrinth (edge case II): 10/10
+	Tests if BFS can find the right way out of the labyrinth (edge case I): 10/10
+Total points for Aufgabe 1.6: 30/30
+
+Total points: 100/100

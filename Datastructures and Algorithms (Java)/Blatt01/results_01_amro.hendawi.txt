@@ -1,0 +1,35 @@
+amro.hendawi,  16.05.2018, 11:47:47
+Korrektur Blatt 1
+
+Aufgabe 1.6
+	Test the Surface computation: 4/4
+	Test the Volume computation: 4/4
+	Test that cuboid inherits from Body: 5/5
+	Test negative parameters for constructor: 2/2
+	Test x,y,z constructor: 5/5
+Total points for Aufgabe 1.6: 20/20
+
+Aufgabe 1.7
+	Test the Surface computation: 4/4
+	Test the Volume computation: 4/4
+	Test that cuboid inherits from Body: 5/5
+	Test constructor with negative value: 2/2
+	Test x,y,z constructor: 5/5
+Total points for Aufgabe 1.7: 20/20
+
+Aufgabe 2.1
+	Test Pair: constructor and getFirst: 2/2
+	Test Pair: constructor and setFirst: 2/2
+	Test Pair: constructor, getter and setter: 3/3
+	Test Pair.swap: 12/12
+	Test Pair.toString() yields correct output: 6/6
+Total points for Aufgabe 2.1: 25/25
+
+Aufgabe 3.4
+	Test SteelFactory.addWorker(): 10/10
+	Test SteelFactory.compareTo(): 15/15
+	Test SteelFactory.getName(): 5/5
+	Test SteelFactory.getWorkerCount(): 5/5
+Total points for Aufgabe 3.4: 35/35
+
+Total points: 100/100

@@ -1,0 +1,40 @@
+amro.hendawi,  30.05.2018, 03:37:16
+Korrektur Blatt 2
+
+Aufgabe 2.1
+	Add element twice: 3/3
+	Add elements until the hashtable is full: 3/3
+	Complex Add. Check if the elements are in the correct position: 10/10
+	Simple add. Add one element and check if the element is contained in the hash table: 4/4
+Total points for Aufgabe 2.1: 20/20
+
+Aufgabe 2.2
+	contains(): basic case: 5/5
+	contains(): complex case I (depends on testContainsImplementation) check whether linear probing has been taking into account: 0/5
+	  java.lang.AssertionError: Test 10: contains() failed. Expected <false> but was <true>. expected:<true> but was:<false>
+	contains(): Correct implementation (depends on testContains) looking for element in wrong position - should never be found: 0/5
+	  java.lang.AssertionError: Test 10: contains() failed. Expected <false> but was <true>. expected:<true> but was:<false>
+	contains(): complex case II (depends on testContainsImplementation) check the special border case (rewinding).: 0/5
+	  java.lang.AssertionError: Test 10: contains() failed. Expected <false> but was <true>. expected:<true> but was:<false>
+Total points for Aufgabe 2.2: 5/20
+
+Aufgabe 2.3
+	Simple remove. Simply check whether the element has been removed regardless of the position: 5/5
+	Removing an element twice. Expecting and exception: 5/5
+	Removing an element that does not exist in the hasthable: 5/5
+	Complex remove. Check if the remove algorithm can handle the special border case (rewinding).: 0/15
+	  java.lang.AssertionError: Test 6: remove() failed. Expected Null, Student [matrikelNummer=0, name=Leila, surname=Mustermann, degree=Informatik], Student [matrikelNummer=5, name=Arne, surname=Mustermann, degree=Jura], Student [matrikelNummer=3, name=Annika, surname=Mustermann, degree=Mathematik], Student [matrikelNummer=0, name=Julie, surname=Mustermann, degree=TI], Student [matrikelNummer=5, name=Bella, surname=Mustermann, degree=Physik], Student [matrikelNummer=6, name=Max, surname=Mustermann, degree=Informatik],  Returned: Null, Student [matrikelNummer=5, name=Bella, surname=Mustermann, degree=Physik], Student [matrikelNummer=0, name=Leila, surname=Mustermann, degree=Informatik], Student [matrikelNummer=5, name=Arne, surname=Mustermann, degree=Jura], Student [matrikelNummer=3, name=Annika, surname=Mustermann, degree=Mathematik], Student [matrikelNummer=0, name=Julie, surname=Mustermann, degree=TI], Student [matrikelNummer=6, name=Max, surname=Mustermann, degree=Informatik],  expected:<true> but was:<false>
+Total points for Aufgabe 2.3: 15/30
+
+Aufgabe 2.4
+	getNumberStudentWithHashvalue(): basic case: 5/5
+	getNumberStudentWithHashvalue(): basic case, efficiency: 5/5
+Total points for Aufgabe 2.4: 10/10
+
+Aufgabe 2.5
+	resize(): Test the size of the new hashtable: 5/5
+	resize(): Test if the hashtable has gotten bigger, and the elements have been copied to the new positions: 5/5
+	resize(): Test if the elements are in their correct positions: 10/10
+Total points for Aufgabe 2.5: 20/20
+
+Total points: 70/100

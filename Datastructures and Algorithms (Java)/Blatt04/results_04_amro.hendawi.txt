@@ -1,0 +1,31 @@
+amro.hendawi,  13.06.2018, 04:05:36
+Korrektur Blatt 04
+
+Aufgabe 1.2
+	Tests if Dijkstra works for randomized weighted circle of random size.: 5/5
+	Tests if Dijkstra works for randomized clique of random size.: 5/5
+	test distances (on vorgabe): 5/5
+	test distances: 10/10
+	test initialization: 2/2
+	test predecessors (on Vorgabe): 3/3
+	test predecessors: 6/6
+	test if all nodes have been reached (on Vorgabe): 3/3
+	test if all nodes have been reached: 6/6
+	Tests if Dijkstra works for randomized weighted tree.: 5/5
+Total points for Aufgabe 1.2: 50/50
+
+Aufgabe 2.4
+	Tests if Bellmann-Ford works for randomized weighted circle of random size.: 6/6
+	Tests if Bellmann-Ford works for randomized clique of random size.: 6/6
+	Tests if Bellmann-Ford works for weighted graph of random size with negative weights.: 6/6
+	Tests if Bellmann-Ford works for randomized weighted tree.: 6/6
+	test distances (on vorgabe): 3/3
+	test distances: 6/6
+	test initialization: 2/2
+	test predecessors (on Vorgabe): 3/3
+	test predecessors (hard): 6/6
+	test if all nodes have been reached (on Vorgabe): 3/3
+	test if all nodes have been reached (hard): 3/3
+Total points for Aufgabe 2.4: 50/50
+
+Total points: 100/100

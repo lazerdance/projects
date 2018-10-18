@@ -1,0 +1,24 @@
+amro.hendawi,  28.06.2018, 09:48:19
+Korrektur Blatt 6
+
+Aufgabe 3.1
+	Test if findAugmentingPath connects s and t: 5/5
+	Test if findAugmentingPath finds path with residual capacity: 4/4
+	Test if findAugmentingPath handles disconnected graphs: 4/4
+	Test if findAugmentingPath handles graphs with no resiual capacity left: 4/4
+	Test EdmondsKarp hard: 10/10
+	Test EdmondsKarp simple: 10/10
+	Test findAugmentingPath complex: 4/4
+	Test findAugmentedPath easy: 5/5
+	Test findAugmentingPath medium: 4/4
+	Test findMinCapacity easy: 5/5
+	Test findMinCapacity medium: 5/5
+	Test findMinimumCapacity: 5/5
+	Test findMinimumCapacity on empty path: 5/5
+	Test updateResidualCapacity easy: 8/8
+	Test updateResidualCapacity medium: 8/8
+	Test updateResidualCapacity Backwards: 7/7
+	Test updateResidualCapacity Forwards: 7/7
+Total points for Aufgabe 3.1: 100/100
+
+Total points: 100/100
