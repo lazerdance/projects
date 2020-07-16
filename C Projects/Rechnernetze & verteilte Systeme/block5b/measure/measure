@@ -1,0 +1,49 @@
+#!/bin/bash
+TIMEFORMAT='The operation took %R seconds.'
+base=$1
+echo Starting measurement 
+while read -r line; do
+	rand+=($line)
+done < rand.txt
+
+num=9
+if [ $# -eq 2 ]
+	then num=`expr $2 - 1`
+fi	
+
+time {
+echo "========================================================="
+echo "Starting first round of SET requests with random keys."
+echo "========================================================="
+for i in `seq 0 $num`; do
+	port=`expr $base + $i`
+	echo "Setting random keys for peer 127.0.0.1:$port"
+	index=0;
+	for r in "${rand[@]}"; do
+		./client 127.0.0.1 $port SET $r meaninglessValue $((index % 128)) > /dev/null
+		if [ $? -ne 0 ]; then
+			exit 1
+		fi
+
+		let index=index+1
+	done 
+done
+echo "========================================================="
+echo "Starting second round of SET requests with the same keys."
+echo "========================================================="
+
+for i in `seq 0 $num`; do
+	port=`expr $base + $i`
+	echo "Setting random keys for peer 127.0.0.1:$port"
+	index=0;
+	for r in "${rand[@]}"; do
+		./client 127.0.0.1 $port SET $r meaninglessValue $((index % 128)) > /dev/null
+		if [ $? -ne 0 ]; then
+			exit 1
+		fi
+		let index=index+1
+	done 
+done
+echo "Measurement done."
+}
+

@@ -1,0 +1,11 @@
+Hostname;RequestNumber;rootDispersion;DispOver8Req;Delay;Offset
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;0;0.000053;0.000000;0.007644;1.019697
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;1;0.000044;0.004549;0.005370;1.017938
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;2;0.000020;0.043521;0.027130;1.041652
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;3;0.000011;0.043521;0.006281;1.017744
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;4;0.000002;0.043521;0.008947;1.017979
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;5;0.000059;0.060727;0.035733;1.048002
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;6;0.000060;0.060727;0.010684;1.022985
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;7;0.000051;0.060727;0.005508;1.019447
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;8;0.000042;0.073497;0.042256;0.982454
+stratum2-4.NTP.TechFak.Uni-Bielefeld.DE;9;0.000033;0.060451;0.010446;1.021015

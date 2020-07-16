@@ -1,0 +1,135 @@
+%        File: 2_theorie_wehr_dyballa_wehr_chen.tex
+%     Created: Sa Mai 25 08:00  2019 C
+% Last Change: Sa Mai 25 08:00  2019 C
+%
+\documentclass[a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, left=2cm, right=3cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usetikzlibrary{arrows}
+\newenvironment{quelle}{\medskip \noindent\itshape Quelle: }{\bigskip}
+\def\thesubsubsection{\alph{subsubsection})}
+
+\begin{document}
+\setcounter{section}{2}
+\setcounter{subsection}{2}
+\section*{Hausaufgabe 2}
+Gruppenmitglieder:\\
+Vincent Wehr\\
+Yannek Wehr\\
+Andreas Dyballa\\
+Junyi Chen
+\subsection{}
+\subsubsection{}
+Ein Prozess ist eine Instanz eines Programmes. Er ist spezialisiert auf deren Ausführung.
+\begin{itemize}
+  \item besitzt Ressourcen
+  \item ist eine Verarbeitungsvorschrift
+  \item Aktivitätsträger
+\end{itemize}
+Durch Prozesse können die Ausführungen verschiedener Programme seperiert werden. Des weiteren können durch 
+diese Trennung logische Abhängigkeiten dargestellt und aufgelöst werden.
+
+\begin{quelle} 
+  Folie 2,3 
+\end{quelle}
+
+\subsubsection{}
+\begin{tabular}{l l}
+  Nebenläufigkeit: & Logisch simultane Verabeitung von Operationsströmen\\
+  & (wird durch Sequentialisierung gelöst) \\ \\
+  Parallelität: & Tatsächlich simultane Verabeitung von Operationsströmen z.B. auf mehrern Prozessoren
+\end{tabular}
+
+\begin{quelle}
+  Folie 12, 13
+\end{quelle}
+
+\subsubsection{}
+\begin{tabular}{ll}
+  Explizietes Umschalten: 	& Prozess gibt die CPU ab \\
+  Implizietes Umschalten:	& Prozess löst einen blockierenden Systemaufruf aus
+\end{tabular}
+
+\begin{quelle}
+  Folie 17
+\end{quelle}
+
+Bei einer Prozessumschaltung werden die Registerinhalte in den PCB gespeichert und der Prozesszustand wird aktualisiert.
+Danach wird ein anderer Prozess geladen. Dieser erhält sein passenden virtuellen Adressraum aus dem PCB, somit werden 
+seine Registerinhalte geladen und der Prozess wird, durch den gespeicherten Befehlszähler, an der Stelle fortgesetzt wo dieser
+unterbrochen wurde.
+
+\begin{quelle}
+  Folie 18
+\end{quelle}
+
+\subsubsection{}
+\begin{itemize}
+  \item Threads sind der ausführende Teil eines Prozesses, in Form eines Kontrollflusses des Prozesses.
+  \item Prozesse benutzen seperate virtuelle Adressräume und können sich somit nicht beeinflussen.
+  \item Threads benutzen den selben virtuellen Adressraum.
+  \item Beim Umschalten wird der Ausführungszustand eines Prozesses im PCB gespeichert, bei Prozessen hingegen in einer Threadtabelle.
+  \item Threads werden von dem startenden Prozess verwaltet, Prozesse vom Kernel.
+\end{itemize}
+\begin{quelle}
+  Folie 25, 26, 33, 34 
+\end{quelle}
+%\break
+\subsection{}
+\subsubsection{}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.7cm,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+		    
+		    \node[main node] (1) {A};
+		    \node[main node] (2) [above right of=1] {B};
+		    \node[main node] (3) [below right of=1] {C};
+		    \node[main node] (4) [right of=3] {D};
+		    \node[main node] (6) [below of=3] {F};
+		    \node[main node] (5) [left of=6] {E};
+		    \node[main node] (7) [right of=6] {G};
+		    \node[main node] (8) [below of=5] {H};
+		    \node[main node] (9) [right of=7] {I};
+		    \node[main node] (10) [above right of=4] {J};
+		    \node[main node] (11) [above right of=9] {K};
+
+		    \path[every node/.style={font=\sffamily\small}]
+		    (1) edge  	     (2)
+		        edge         (3)
+		    (3) edge         (4)
+		        edge         (6)
+		    (5) edge         (6)
+		    (4) edge         (7)
+		    (6) edge         (7)
+		    (2) edge         (10)
+		    (7) edge         (9)
+		    (9) edge         (11)
+		    (10)edge         (11)
+		    (7) edge [bend right ]  (10);
+  \end{tikzpicture}
+\subsubsection{}
+\begin{lstlisting}
+fork k:=jobH()
+fork e:=jobE()
+     a:=jobA()
+fork b:=jobB(a)
+     c:=jobC(a)
+join e:=jobE()
+fork f:=jobF(c,e)
+     d:=jobD(c)
+join f:=jobE(c,e)
+     g:=jobG(d,f)
+join b:=jobB(a)
+fork j:=jobJ(b,g)
+     i:=jobI(g)
+join j:=jobJ(b,g)
+     k:=jobK(i,j)
+join k:=jobH()
+\end{lstlisting}
+
+
+\end{document}
+
+

@@ -1,0 +1,6 @@
+alias test0='valgrind ./peer 12 localhost 4000 112 localhost 4005 39 localhost 4001'
+alias test1='valgrind ./peer 39 localhost 4001 12 localhost 4000 58 localhost 4002'
+alias test2='valgrind ./peer 58 localhost 4002 39 localhost 4001 77 localhost 4003'
+alias test3='valgrind ./peer 77 localhost 4003 58 localhost 4002 90 localhost 4004'
+alias test4='valgrind ./peer 90 localhost 4004 77 localhost 4003 112 localhost 4005'
+alias test5='valgrind ./peer 112 localhost 4005 90 localhost 4004 12 localhost 4000'

@@ -1,0 +1,4 @@
+/mnt/c/Users/test/Desktop/Block3_new/block3a/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/test/Desktop/Block3_new/block3a/build/CMakeFiles/server.dir
+/mnt/c/Users/test/Desktop/Block3_new/block3a/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/test/Desktop/Block3_new/block3a/build/CMakeFiles/client.dir

@@ -1,0 +1,43 @@
+Hausaufgabe 4
+
+-a) Die Threads unterbrechen sich gegenseitig auch an unerwunschten Stellen, da der Threadwechsel 
+nicht blockiert ist. Zum beispiel kann das Laufband weiter gehen wahrend der Schraubarm noch am 
+Produkt ist und somit das Auto zerkratzen.
+
+-b) Spurious Wakeup ist das unberechtigte Aufwecken eines Threads durch das Betriebssystem, das 
+selbst ohne das Senden des expliziten erwarteten Signals passieren kann. Um das zu vermeiden, wird 
+nach dem Aufwecken in einer Schleife um den Waitbefehl uberpruft, ob die Bedingung erfullt ist. 
+Wenn dies nicht der Fall ist wird der Thread wieder pausiert.
+Quelle: Vorlesung 4, Folie 50
+
+-c)
+State s; 			// Werte: 'belt' oder 'screw'
+Signal schraubenFertig;
+Mutex nichtZerkratzen;
+
+Beforderungsband-Thread: 
+while(1) { 
+	nichtZerkratzen_lock;
+	belt_move(1);     // Band nach vorne bewegen
+	nichtZerkratzen_unlock;
+       s = screw;
+      while(s == screw) {
+      	wait(schraubenFertig);
+      }
+      
+Schraubarm-Thread: 
+while(1) { 
+	nichtZerkratzen_lock;
+      arm_dock();         // Schraubmaschine andocken 
+      screw();                // Schrauben festdrehen
+      arm_undock();   // Schraubmaschine abdocken
+      nichtZerkratzen_unlock;
+      s = belt;
+      signal(schraubenfertig);
+      
+
+-d)	Es gibt zwei Arten der expliziten Prozess- /Threadinteraktion: Konkurrenz und Kooperation
+Es handelt sich hier um eine Konkurrenz, da die beiden Threads um das Betriebsmittel, die 
+Autos, exklusiv konkurrieren. Das bedeutet, dass entweder der Schraubarm-thread oder der 
+Band-thread mit dem Auto interagieren kann, aber nie beide gleichzeitig.
+Quelle: Vorlesung 4, Folie 5

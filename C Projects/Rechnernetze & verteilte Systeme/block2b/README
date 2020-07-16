@@ -1,0 +1,16 @@
+Der TCP CLient ist langsamer, da es sich um eine verbindungsorientierte Datenübertragung handelt und jedes empfangene Paket durch ein weiteres Paket bestätigt wird und nicht empfangene Pakete ggf. nochmal verschickt werden.
+Da UDP keine Empfangsbestätigung der Datenpakete benötigt, werden die Pakete einmal losgeschickt und suchen sich ihren Weg zu dem Verbindungspartner. Folglich ist der UDP-Client schneller als der TCP-Client.
+
+===========================================================================================
+
+Folgende Durchschnittszeiten für den Datenaustausch wurden gemessen.
+Die Verbindungen wurden per WLAN aus dem Uninetz auf die Ubuntu 18 EECS Server hergestellt.
+Es wurden 5 Datenübertragungen gemessen um den Durchschnitt zu bilden.
+
+AVG TIME UDP: 0.00807918
+AVG TIME TCP: 0.01250208
+
+===========================================================================================
+
+server call TCP: echo "Testpaket" | nc.openbsd -W 1 -l 4310
+server call UDP: echo "Testpaket" | nc.openbsd -W 1 -lu 4310

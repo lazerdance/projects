@@ -1,0 +1,84 @@
+%        File: 2_theorie_wehr_dyballa_wehr_chen.tex
+%     Created: Sa Mai 25 08:00  2019 C
+% Last Change: Sa Mai 25 08:00  2019 C
+%
+
+\documentclass[a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, left=2cm, right=3cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\newenvironment{quelle}{\medskip \noindent\itshape Quelle: }{\bigskip}
+\def\thesubsubsection{\alph{subsubsection})}
+\newcommand{\hausaufgabenNr}{3}
+
+\begin{document}
+\setcounter{section}{\hausaufgabenNr}
+\setcounter{subsection}{3}
+\section*{Hausaufgabe \hausaufgabenNr}
+Gruppenmitglieder:\\
+Vincent Wehr\\
+Yannek Wehr\\
+Andreas Dyballa\\
+Junyi Chen
+\subsection{Scheduling-Theorie}
+\subsubsection{} 
+Die Verdrängung beschreibt das Anhalten bzw. Ersetzen eines Prozesses 
+durch einen anderen Prozess nach der Schedulingstrategie.
+
+\begin{quelle} de.wikipedia.org/wiki/Prozess\_(Informatik)\#Prozessumschaltung \end{quelle}
+
+\subsubsection{}
+Das HRRN-Verfahren bildet einen Kompromiss zwischen der Antwortzeit und der Fairness.
+
+\begin{quelle}
+  Folie 24
+\end{quelle}
+
+\subsubsection{}
+Die Prioritätsinvertierung wird angewendet, wenn zwei, um ein notwendiges Betriebsmittel kongurierende, 
+Prozesse sich blockieren. Dies tritt auf, wenn der betriebsmittelnutzende Prozess eine niedrigere Priorität als der Kongurierende hat, da der niedrig priorisierte Prozess die Ressource nicht abgeben kann.
+
+Dieser Effekt ensteht durch die Existenz dritter Prozesse mit einer Priorität zwischen den Prozessen.
+Denn dieser verhindert die Ausführung des niedrigsten Prozesses und damit die Auflösung der Blockierung der Systemressource, da dieser beim Abgeben des höchsten Prozesses anstelle des Blockierenden ausgeführt werden würde.
+
+Um diesem Effekt entgegen zu wirken, wird dem blockierenden Prozess die Priorität des wartenden Prozesses zugeordnet. Nach Freigabe des Betriebsmittels, bzw. Auflösen des Konfliktes, erhält er seine ursprüngliche Priorität.  
+Dies beschreibt die Prioritätsinvertierung.
+
+Ohne sie wird ein hoch priorisierter Prozess in dem beschriebenen Szenario dauerblockiert. Dies führte z.B. fast zu dem Verlust der Pathfinder-Marssonde.
+
+\begin{quelle}
+  
+  Folie 21
+  
+  de.wikipedia.org/wiki/Prioritätsinversion
+\end{quelle}
+
+\subsubsection{}
+Beim Offline Scheduling sind bereits alle Prozesse bekannt, besonders ihre Ankünfte. Wodurch bereits
+vor der Ausführungszeit der Ablaufplan erstellt werden kann. Wohingegen beim Online Scheduling nur während
+der Laufzeit die aktuellen Prozesse bekannt, nicht aber die Zukünftigen.
+Dementsprechend wird die Entscheidungsfindung auf Grund von 
+unvollständiger Informationen abgehandelt.
+
+Somit wird beim Offline Scheduling ein totales Wissen über alle Prozesse benötigt und beim Online Scheduling kein Vorwissen benötigt.
+
+\begin{quelle}
+  Folie 7
+\end{quelle}
+
+\subsubsection{}
+Das Hard real-time system und das Soft real-time system sind beide Echtzeitsysteme und müssen somit
+Ergebnisse somit in einer gegebenen Zeit antworten muss. Das Hard real-time system toleriert
+Antwortzeitüberschreitungen nicht. Wohingegen Soft real-time systeme die vorgegebene Antwortzeit als Richtwert in Form eines Mittelwertesa oder ähnliches betrachten.
+
+\begin{quelle}
+
+  Folie 32
+  
+  de.wikipedia.org/wiki/Echtzeitsystem
+
+\end{quelle}
+
+\end{document}

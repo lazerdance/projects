@@ -1,0 +1,10 @@
+Dieses Skript dient zur Zeitmessung um die Beschleunigung durch Fingertables zu verdeutlichen.
+Hierzu wird der Client aus der vorherigen Aufgabe benutzt um SET Anfragen mit 10 000 zufälligen Keys aus rand.txt zu versenden.
+Das gleiche Anfragen-Set wird dazu an jeden lokalen Peer geschickt, welche diese ggf. weiterleiten sollte.
+Die zufälligen Keys stellen sicher, dass am Ende der Prozedur jeder Peer eine Antwort von jedem anderen Peer erhalten haben sollte. 
+Spätestens nach der ersten Messrunde sollte also jeder Peer genügend Information über den Ring besitzen um eine vollständige Fingertable aufbauen zu können. 
+
+Der Aufruf des Skripts erfolgt mit:
+./measure [Port des ersten Peers] [optional: Anzahl der Knoten im Ring]
+
+Die Anfragen werden an localhost:port+n geschickt. Das vereinfacht den Aufruf und Sie müssen nicht jede(n) IP/Port von Hand eingeben. Optional können sie eine Knotenanzahl angeben um evtl. mit weniger oder mehr Knoten zu testen. 

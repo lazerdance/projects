@@ -1,0 +1,10 @@
+TU-Berlin;2000
+HU-Berlin;3001
+FU-Berlin;3001
+Studierendenwerk;3001
+baeckerei1;3001
+baeckerei2;2000
+baeckerei3;3001
+baeckerei4;3001
+baeckerei5;3001
+

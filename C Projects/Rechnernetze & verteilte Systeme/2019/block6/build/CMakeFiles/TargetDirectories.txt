@@ -1,0 +1,3 @@
+/mnt/c/Users/test/Desktop/C implementations/block6/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/test/Desktop/C implementations/block6/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/test/Desktop/C implementations/block6/build/CMakeFiles/ntpclient.dir

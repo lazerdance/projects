@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/ntpclient.dir/ntpclient.c.o CMakeFiles/ntpclient.dir/ntprotocol.c.o  -o ntpclient -rdynamic 

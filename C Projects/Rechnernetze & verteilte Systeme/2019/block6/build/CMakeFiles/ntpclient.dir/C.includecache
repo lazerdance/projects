@@ -1,0 +1,56 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/test/Desktop/C implementations/block6/ntpclient.c
+time.h
+-
+stdio.h
+-
+netdb.h
+-
+stdlib.h
+-
+stdint.h
+-
+string.h
+-
+limits.h
+-
+ntppacket.h
+/mnt/c/Users/test/Desktop/C implementations/block6/ntppacket.h
+ntpserver.h
+/mnt/c/Users/test/Desktop/C implementations/block6/ntpserver.h
+ntprotocol.h
+/mnt/c/Users/test/Desktop/C implementations/block6/ntprotocol.h
+
+/mnt/c/Users/test/Desktop/C implementations/block6/ntppacket.h
+
+/mnt/c/Users/test/Desktop/C implementations/block6/ntprotocol.c
+stdio.h
+-
+time.h
+-
+netdb.h
+-
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+ntppacket.h
+/mnt/c/Users/test/Desktop/C implementations/block6/ntppacket.h
+ntpserver.h
+/mnt/c/Users/test/Desktop/C implementations/block6/ntpserver.h
+ntprotocol.h
+/mnt/c/Users/test/Desktop/C implementations/block6/ntprotocol.h
+
+/mnt/c/Users/test/Desktop/C implementations/block6/ntprotocol.h
+
+/mnt/c/Users/test/Desktop/C implementations/block6/ntpserver.h
+

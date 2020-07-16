@@ -1,0 +1,156 @@
+%        File: 2_theorie_wehr_dyballa_wehr_chen.tex
+%     Created: Sa Mai 25 08:00  2019 C
+% Last Change: Sa Mai 25 08:00  2019 C
+%
+
+\documentclass[a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[a4paper, left=2cm, right=3cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{listings}
+\usepackage{pgfgantt}
+\newenvironment{quelle}{\medskip \noindent\itshape Quelle: }{\medskip}
+\def\thesubsubsection{\alph{subsubsection})}
+\newcommand{\hausaufgabenNr}{4}
+
+\begin{document}
+\setcounter{section}{\hausaufgabenNr}
+\setcounter{subsection}{3}
+\section*{Hausaufgabe \hausaufgabenNr}
+Gruppenmitglieder:\\
+Vincent Wehr\\
+Yannek Wehr\\
+Andreas Dyballa\\
+Junyi Chen
+\subsection{Synchronisation/Kooperation}
+\subsubsection{}
+Die Threads unterbrechen sich gegenseitig auch an unerwünschten Stellen, da der Threadwechsel 
+nicht kontrolliert ist. Zum Beispiel kann das Laufband weiter gehen, während der Schraubarm noch am 
+Produkt ist und somit das Auto zerkratzen.
+
+\subsubsection{}
+Spurious Wakeup ist das unberechtigte Aufwecken eines Threads durch das Betriebssystem, das 
+selbst ohne das Senden des expliziten erwarteten Signals passieren kann. Um das zu vermeiden, wird 
+nach dem Aufwecken in einer Schleife um den Waitbefehl überprüft, ob die Bedingung erfüllt ist. 
+Wenn dies nicht der Fall ist wird der Thread wieder pausiert.
+
+\begin{quelle}
+  Vorlesung 4, Folie 50
+\end{quelle}
+
+\subsubsection{}
+\begin{lstlisting}
+State s = belt; 			// Werte: 'belt' oder 'screw'
+Signal schraubenFertig;
+Signal bandFertig;
+Mutex nichtZerkratzen;
+
+Befoerderungsband-Thread: 
+while(1) { 
+	while(s == screw) {
+		wait(schraubenFertig);
+	}
+  	lock(nichtZerkratzen);
+	belt_move(1);     		// Band nach vorne bewegen
+	s = screw;
+	unlock(nichtZerkratzen);
+	signal(bandFertig);
+}
+
+Schraubarm-Thread: 
+while(1) { 
+	while(s == belt) {
+    		wait(bandFertig);
+	}
+	lock(nichtZerkratzen);
+	arm_dock();         		// Schraubmaschine andocken 
+	screw();                	// Schrauben festdrehen
+	arm_undock();   		// Schraubmaschine abdocken
+	s = belt;
+	unlock(nichtZerkratzen);
+	signal(schraubenFertig);
+}
+\end{lstlisting}
+\newpage
+
+\subsubsection{}
+Es gibt zwei Arten der expliziten Prozess-/Threadinteraktionen: Konkurrenz und Kooperation.
+Es handelt sich hier um eine Konkurrenz, da die beiden Threads um das Betriebsmittel, die 
+Autos, exklusiv konkurrieren. Das bedeutet, dass entweder der Schraubarm-thread oder der 
+Band-thread mit dem Auto interagieren kann, aber nie beide gleichzeitig.
+
+\begin{quelle}
+  Vorlesung 4, Folie 5
+\end{quelle}
+
+\subsection{Periodische Prozesse}
+\subsubsection{}
+Für jeden Prozess gilt $0 \; < \; b_i \le d_i \le p_i$:  
+\\
+\[ A: 0 \; < \; 1 \le 6 \le 6 \]
+\[ B: 0 \; < \; 2 \le 6 \le 6 \]
+\[ C: 0 \; < \; 1 \le 4 \le 6 \]
+Des weiteren gilt $\sum \limits_{i} \frac{b_i}{p_i} \; \le \; 1$:
+\[ \frac{1}{6} + \frac{2}{6} + \frac{1}{4} = \frac{3}{4} \;\le\; 1 \]
+Damit wird das notwendige Kriterium erfüllt und ein zulässiger Schedule ist möglich. Laut c) existiert z.B. das RMS.
+
+\begin{quelle}
+  Vorlesung 4, Folie 37-41
+\end{quelle}
+
+\subsubsection{}
+\begin{ganttchart}[
+    hgrid=true,
+    vgrid={*1{dotted}}
+]{1}{28}
+\gantttitlelist{1,...,28}{1} \\
+\ganttgroup{Hyperperiode}{1}{12}\\
+\ganttbar{Task A}{2}{2} 
+\ganttbar{}{7}{7}
+\ganttbar{}{14}{14}
+\ganttbar{}{19}{19}
+\ganttbar{}{26}{26}\\
+\ganttbar{Task B}{3}{4}
+\ganttbar{}{8}{9}
+\ganttbar{}{15}{16}
+\ganttbar{}{20}{21}
+\ganttbar{}{27}{28}\\
+\ganttbar{Task C}{1}{1} 
+\ganttbar{}{5}{5}
+\ganttbar{}{10}{10}
+\ganttbar{}{13}{13}
+\ganttbar{}{17}{17}
+\ganttbar{}{22}{22}
+\ganttbar{}{25}{25}
+\ganttvrule{}{5}
+\ganttvrule{}{6}
+\ganttvrule{}{10}
+\ganttvrule{}{12}
+\ganttvrule{}{17}
+\ganttvrule{}{18}
+\ganttvrule{}{22}
+\ganttvrule{}{24}
+\end{ganttchart}
+
+\subsubsection{}
+Ja das RMS ist ein gültiger Schedule, da laut a) das notwendige Kriterium und hiermit das hinreichende Kriterium erfüllt wird:
+
+\[ \sum \limits_{i=1}^n \frac{b_i}{p_i} \;\le\; n (2^{\frac{1}{n}} - 1) \]
+\[ \frac{1}{6} + \frac{2}{6} + \frac{1}{4} = \frac{3}{4} \; = \; 0.75 \]
+
+\[ 0.75 \; \le \; 0.75682\cdots\]
+
+\begin{quelle}
+  Vorlesung 4, Folie 38
+\end{quelle}
+
+\subsubsection{}
+Wird ein weiterer Prozess D mit $(D=3, P=19)$ hinzugefügt, kann das hinreichende Kriterium nicht mehr erfüllt werden.
+\[ \frac{1}{6} + \frac{2}{6} + \frac{1}{4} + \frac{3}{19} \approx 0.907894 \; \not\leq \; 0.75682\cdots\]
+
+Da $0.907894\cdots \le 1$, ist allerdings das notwendige Kriterium erfüllt und somit ist ein anderes Scheduling als das RMS möglich. 
+
+\begin{quelle}
+  Vorlesung 4, Folie 37-41
+\end{quelle}
+
+\end{document}

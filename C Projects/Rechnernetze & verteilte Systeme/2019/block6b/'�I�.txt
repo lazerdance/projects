@@ -1,0 +1,5 @@
+Hostname;RequestNumber;rootDispersion;DispOver8Req;Delay;Offset
+0.de.pool.ntp.org;0;0.000027;0.000000;0.009345;1.041763
+1.de.pool.ntp.org;0;0.000024;0.000816;0.008937;1.042234
+2.de.pool.ntp.org;0;0.000042;0.010487;0.004101;1.041683
+3.de.pool.ntp.org;0;0.000008;0.010650;0.009426;1.041657

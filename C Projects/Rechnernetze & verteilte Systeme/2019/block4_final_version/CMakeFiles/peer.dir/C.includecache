@@ -1,0 +1,78 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/connection.c
+stdio.h
+-
+stdlib.h
+-
+netdb.h
+-
+string.h
+-
+unistd.h
+-
+protokoll.h
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/protokoll.h
+time.h
+-
+
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/connection.h
+
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/hashmap.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+hashmap.h
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/hashmap.h
+
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/hashmap.h
+
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/peer.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+netdb.h
+-
+arpa/inet.h
+-
+signal.h
+-
+protokoll.h
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/protokoll.h
+hashmap.h
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/hashmap.h
+connection.h
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/connection.h
+
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/protokoll.c
+stdio.h
+-
+netdb.h
+-
+stdlib.h
+-
+string.h
+-
+arpa/inet.h
+-
+protokoll.h
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/protokoll.h
+hashmap.h
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/hashmap.h
+
+/mnt/c/Users/test/Desktop/C implementations/block4_final_version/protokoll.h
+

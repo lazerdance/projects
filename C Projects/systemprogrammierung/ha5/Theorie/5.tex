@@ -1,0 +1,326 @@
+\documentclass[10pt,a4paper]{scrartcl}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\begin{document}
+\Large{Hausaufgabe 5}\\
+\normalsize
+Vincent Wehr\\
+Yannek Wehr\\
+Andreas Dyballa\\
+Junyi Chen\\
+	\\5.1\\\\
+	FCFS\\
+	\begin{tabularx}{\textwidth}{p{0.25\textwidth}|c|c|c|c|c|c|c|c|c|c|c}
+		\hline
+		Zeitpunkt		& 0	& 1	& 2 & 2 & 3 & 3 & 3 & 4 & 4 & 5 & 5\\
+		\hline
+		Freigaben		& -	& F1 & F2 & - & F3 & - & - & F4 & - & F5 & -\\
+		\hline
+		Anforderungen	& -	& -	& - & A1 & - & A2 & A3 & - & A4 & - & A5\\
+		\hline
+		akt. freie Ein.	& 0	& 3	& 15 & 5 & 13 & 7 & 0 & 2 & 1 & 5 & 0\\
+	\end{tabularx}\\\\
+	Durchschnittliche Wartezeit: $\frac{12}{5}$\\\\
+	First Fit\\
+	\begin{tabularx}{\textwidth}{p{0.25\textwidth}|c|c|c|c|c|c|c|c|c|c|c}
+		\hline
+		Zeitpunkt		& 0	& 1	& 1 & 2 & 2 & 3 & 3 & 3 & 4 & 5 & 5\\
+		\hline
+		Freigaben		& -	& F1 & - & F2 & - & F3 & - & - & F4 & F5 & -\\
+		\hline
+		Anforderungen	& -	& -	& A4 & - & A1 & - & A2 & A5 & - & - & A3\\
+		\hline
+		akt. freie Ein.	& 0	& 3	& 2 & 14 & 4 & 12 & 6 & 1 & 3 & 7 & 0\\
+	\end{tabularx}\\\\
+	Durchschnittliche Wartezeit: $\frac{9}{5}$\\\\
+	Best Fit\\
+	\begin{tabularx}{\textwidth}{p{0.25\textwidth}|c|c|c|c|c|c|c|c|c|c|c}
+		\hline
+		Zeitpunkt		& 0	& 1	& 1 & 2 & 2 & 3 & 3 & 3 & 4 & 5 & 5\\
+		\hline
+		Freigaben		& -	& F1 & - & F2 & - & F3 & - & - & F4 & F5 & -\\
+		\hline
+		Anforderungen	& -	& -	& A4 & - & A1 & - & A3 & A5 & - & - & A2\\
+		\hline
+		akt. freie Ein.	& 0	& 3	& 2 & 14 & 4 & 12 & 5 & 0 & 2 & 6 & 0\\
+	\end{tabularx}\\\\
+	Durchschnittliche Wartezeit: $\frac{9}{5}$\\\\
+	Best Fit mit dynamischem Fenster\\
+	\ Lmax = 3\\
+	\begin{tabularx}{\textwidth}{p{0.25\textwidth}|c|c|c|c|c|c|c|c|c|c|c}
+		\hline
+		Zeitpunkt		& 0	& 1	& 2 & 2 & 2 & 3 & 3 & 4 & 4 & 5 & 5\\
+		\hline
+		Freigaben		& -	& F1 & F2 & - & - & F3 & - & F4 & - & F5 & -\\
+		\hline
+		Anforderungen	& -	& -	& - & A1 & A4 & - & A3 & - & A2 & - & A5\\
+		\hline
+		akt. freie Ein.	& 0	& 3	& 15 & 5 & 4 & 12 & 5 & 7 & 1 & 5 & 0\\
+		\hline
+		Lmax			& 3	& 3	& 3 & 3 & 2 & 2 & 1 & 1 & 3 & 3 & 3\\
+	\end{tabularx}\\\\
+	Durchschnittliche Wartezeit: $\frac{11}{5}$\\\\\\\\\\\\\
+	\\5.2\\\\
+	Ausgangssituation Zeit 0\\
+	\noindent\hspace*{19mm} A \ B \ C \ D\\
+	G =
+	$\begin{array}{r}
+	p1 \\
+	p2 \\
+	p3 \\
+	p4 \\
+	\end{array}
+	\left( \begin{array}{rrrr}
+	3 & 0 & 3 & 3 \\
+	1 & 3 & 0 & 1 \\
+	0 & 2 & 4 & 0 \\
+	0 & 1 & 0 & 3 \\
+	\end{array}\right) $ 
+	\ f = (4444)\\
+	\\\\Zeit 1\\
+	B =
+	$\left( \begin{array}{rrrr}
+	3 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 3 \\
+	1 & 3 & 0 & 1 \\
+	0 & 2 & 4 & 0 \\
+	0 & 1 & 0 & 3 \\
+	\end{array}\right) $ 
+	\ \ f = (1444)\\
+	Bankieralgorithmus:\\
+	$\rightarrow$ P1,P2,P3,P4\\
+	$\rightarrow$ sicherer Zustand
+	\\\\Zeit 2\\
+	B =
+	$\left( \begin{array}{rrrr}
+	3 & 0 & 0 & 2 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	1 & 3 & 0 & 1 \\
+	0 & 2 & 4 & 0 \\
+	0 & 1 & 0 & 3 \\
+	\end{array}\right) $ 
+	\ \ f = (1442)\\
+	Bankieralgorithmus:\\
+	$\rightarrow$ P1,P2,P3,P4\\
+	$\rightarrow$ sicherer Zustand
+	\\\\Zeit 3\\
+	B =
+	$\left( \begin{array}{rrrr}
+	3 & 0 & 0 & 2 \\
+	0 & 3 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	1 & 0 & 0 & 1 \\
+	0 & 2 & 4 & 0 \\
+	0 & 1 & 0 & 3 \\
+	\end{array}\right) $ 
+	\ \ f = (1142)\\
+	Bankieralgorithmus:\\
+	$\rightarrow$ P1,P2,P3,P4\\
+	$\rightarrow$ sicherer Zustand
+	\\\\Zeit 4\\
+	B =
+	$\left( \begin{array}{rrrr}
+	3 & 0 & 0 & 2 \\
+	0 & 3 & 0 & 1 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	1 & 0 & 0 & 0 \\
+	0 & 2 & 4 & 0 \\
+	0 & 1 & 0 & 3 \\
+	\end{array}\right) $ 
+	\ \ f = (1141)\\
+	Bankieralgorithmus:\\
+	$\rightarrow$ P1,P2,P3,P4\\
+	$\rightarrow$ sicherer Zustand
+	\\\\Zeit 5\\
+	B =
+	$\left( \begin{array}{rrrr}
+	3 & 0 & 0 & 2 \\
+	0 & 3 & 0 & 1 \\
+	0 & 0 & 3 & 0 \\
+	0 & 0 & 0 & 0 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	1 & 0 & 0 & 0 \\
+	0 & 2 & 1 & 0 \\
+	0 & 1 & 0 & 3 \\
+	\end{array}\right) $ 
+	\ \ f = (1111)\\
+	Bankieralgorithmus:\\
+	$\rightarrow$ P2,P3,P1,P4\\
+	$\rightarrow$ sicherer Zustand
+	\\\\Zeit 6\\
+	P3 möchte 2 Einheiten vom BM B haben. Von B ist aber nur 1 frei. Also wird P3 blockiert.
+	\\\\Zeit 7\\
+	B =
+	$\left( \begin{array}{rrrr}
+	1 & 0 & 0 & 2 \\
+	0 & 3 & 0 & 1 \\
+	0 & 0 & 3 & 0 \\
+	0 & 0 & 0 & 0 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	1 & 0 & 0 & 0 \\
+	0 & 2 & 1 & 0 \\
+	0 & 1 & 0 & 3 \\
+	\end{array}\right) $ 
+	\ \ f = (3111)
+	\\\\Zeit 8\\
+	P1 möchte 3 Einheiten vom BM C haben. Von C ist aber nur 1 frei. Also wird P1 blockiert.
+	\\\\Zeit 9\\
+	B =
+	$\left( \begin{array}{rrrr}
+	1 & 0 & 0 & 2 \\
+	0 & 3 & 0 & 1 \\
+	0 & 0 & 3 & 0 \\
+	0 & 1 & 0 & 0 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	1 & 0 & 0 & 0 \\
+	0 & 2 & 1 & 0 \\
+	0 & 0 & 0 & 3 \\
+	\end{array}\right) $ 
+	\ \ f = (3011)\\
+	Bankieralgorithmus:\\
+	$\rightarrow$ P2,P3,P1,P4\\
+	$\rightarrow$ sicherer Zustand
+	\\\\Zeit 10\\
+	B =
+	$\left( \begin{array}{rrrr}
+	1 & 0 & 0 & 2 \\
+	0 & 3 & 0 & 1 \\
+	0 & 0 & 3 & 0 \\
+	0 & 1 & 0 & 1 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	1 & 0 & 0 & 0 \\
+	0 & 2 & 1 & 0 \\
+	0 & 0 & 0 & 2 \\
+	\end{array}\right) $ 
+	\ \ f = (3010)\\
+	Bankieralgorithmus:\\
+	$\rightarrow$ P2,P3,P1,P4\\
+	$\rightarrow$ sicherer Zustand
+	\\\\Zeit 11\\
+	P3 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 12\\
+	P3 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 13\\
+	B =
+	$\left( \begin{array}{rrrr}
+	1 & 0 & 0 & 2 \\
+	1 & 3 & 0 & 1 \\
+	0 & 0 & 3 & 0 \\
+	0 & 1 & 0 & 1 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	0 & 0 & 0 & 0 \\
+	0 & 2 & 1 & 0 \\
+	0 & 0 & 0 & 2 \\
+	\end{array}\right) $ 
+	\ \ f = (2010)\\
+	Bankieralgorithmus:\\
+	$\rightarrow$ P2,P3,P1,P4\\
+	$\rightarrow$ sicherer Zustand
+	\\\\Zeit 14\\
+	B =
+	$\left( \begin{array}{rrrr}
+	1 & 0 & 0 & 2 \\
+	1 & 0 & 0 & 1 \\
+	0 & 0 & 3 & 0 \\
+	0 & 1 & 0 & 1 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	0 & 0 & 0 & 0 \\
+	0 & 2 & 1 & 0 \\
+	0 & 0 & 0 & 2 \\
+	\end{array}\right) $ 
+	\ \ f = (2310)
+	\\\\Zeit 15\\
+	P1 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 16\\
+	P1 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 17\\
+	P4 möchte 1 Einheit vom BM D haben. Von D ist aber nichts frei. Also wird P4 blockiert.
+	\\\\Zeit 18\\
+	P4 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 19\\
+	P3 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 20\\
+	P3 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 21\\
+	P1 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 22\\
+	P1 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 23\\
+	B =
+	$\left( \begin{array}{rrrr}
+	1 & 0 & 0 & 2 \\
+	0 & 0 & 0 & 1 \\
+	0 & 0 & 3 & 0 \\
+	0 & 1 & 0 & 1 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	0 & 0 & 0 & 0 \\
+	0 & 2 & 1 & 0 \\
+	0 & 0 & 0 & 2 \\
+	\end{array}\right) $ 
+	\ \ f = (3310)
+	\\\\Zeit 24\\
+	B =
+	$\left( \begin{array}{rrrr}
+	1 & 0 & 0 & 2 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 3 & 0 \\
+	0 & 1 & 0 & 1 \\
+	\end{array}\right) $
+	\ \ R =
+	$\left( \begin{array}{rrrr}
+	0 & 0 & 3 & 1 \\
+	0 & 0 & 0 & 0 \\
+	0 & 2 & 1 & 0 \\
+	0 & 0 & 0 & 2 \\
+	\end{array}\right) $ 
+	\ \ f = (3311)
+	\\\\Zeit 25\\
+	P2 Exit.
+	\\\\Zeit 26\\
+	P4 ist blockiert, kann also nicht ausgeführt werden.
+	\\\\Zeit 27\\
+	P4 ist blockiert, kann also nicht ausgeführt werden.
+\end{document}

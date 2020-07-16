@@ -1,0 +1,6 @@
+bash -c "DISPLAY=:0 ./peer 12 localhost 4000 112 localhost 4005 39 localhost 4001"
+bash -c "DISPLAY=:1 ./peer 39 localhost 4001 12 localhost 4000 58 localhost 4002"
+xterm -title "test2" -e "./peer 58 localhost 4002 39 localhost 4001 77 localhost 4003"
+xterm -title "test3" -e "./peer 77 localhost 4003 58 localhost 4002 90 localhost 4004"
+xterm -title "test4" -e "./peer 90 localhost 4004 77 localhost 4003 112 localhost 4005"
+xterm -title "test5" -e "./peer 112 localhost 4005 90 localhost 4004 12 localhost 4000"

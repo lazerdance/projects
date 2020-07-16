@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/client.dir/client.c.o CMakeFiles/client.dir/protokoll.c.o CMakeFiles/client.dir/hashmap.c.o  -o client -rdynamic 

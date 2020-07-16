@@ -1,0 +1,11 @@
+Mit dem auf ISIS zur Verfügung gestellten Skript und 16 Peers wurden folgende
+Ergebnisse gemessen:
+
+Mit Fingertable: 1696,334 seconds
+Ohne Fingertable: 1950,355 seconds
+
+Mit einem eigenen Skript und 32 Peers wurden für 50.000 zufällige Anfragen
+durchschnittlich folgende Ergebnisse gemessen: 
+
+Mit Fingertable: 226.4150 seconds
+Ohne Fingertable: 376.5045 seconds

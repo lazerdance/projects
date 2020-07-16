@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/peer.dir/peer.c.o CMakeFiles/peer.dir/hashmap.c.o CMakeFiles/peer.dir/protokoll.c.o CMakeFiles/peer.dir/connection.c.o  -o peer -rdynamic 
